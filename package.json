@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env npm run development",
     "development": "mix",
-    "watch": "cross-env mix watch",
+    "watch": "cross-env NODE_ENV=watch mix watch",
     "watch-poll": "mix watch -- --watch-options-poll=3000",
     "hot": "cross-env mix watch --hot",
     "build": "cross-env npm run production",

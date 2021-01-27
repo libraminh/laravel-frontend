@@ -2,7 +2,7 @@ let mix = require("laravel-mix");
 require("mix-tailwindcss");
 require("laravel-mix-clean");
 require("laravel-mix-nunjucks");
-require('laravel-mix-copy-watched');
+require("laravel-mix-copy-watched");
 
 const outputDir = "dist/src";
 
@@ -16,7 +16,7 @@ mix.sass("src/css/main.scss", `${outputDir}/css`);
 mix
   .sass("src/css/libs/tailwind.scss", `${outputDir}/css`)
   .tailwind("./tailwind/tailwind.config.js");
-mix.njk("src/views/*.njk", 'dist', {
+mix.njk("src/views/*.njk", "dist", {
   ext: ".html",
   // data: {},
   // marked: null,
@@ -24,17 +24,14 @@ mix.njk("src/views/*.njk", 'dist', {
   // manageEnv: (nunjucks) => {},
 });
 
-mix.copyDirectory([
-  'src/libs',
-], `${outputDir}/libs`);
-mix.copyDirectory([
-  'src/images',
-], `${outputDir}/images`);
+mix.copyDirectory(["src/libs"], `${outputDir}/libs`);
+mix.copyDirectory(["src/images"], `${outputDir}/images`);
 
+if (process.env.NODE_ENV != "watch") return;
 mix.browserSync({
   server: {
     baseDir: "./dist",
     index: "/index.html",
   },
-  files: ['./dist/*.html']
+  files: ["./dist/*.html"],
 });
