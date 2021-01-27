@@ -36,4 +36,5 @@ mix.browserSync({
     baseDir: "./dist",
     index: "/index.html",
   },
+  files: ['./dist/*.html']
 });
