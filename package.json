@@ -15,6 +15,7 @@
   "author": "Minh Le",
   "license": "ISC",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.0",
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "2.2.2",
     "clean-webpack-plugin": "^3.0.0",
@@ -25,6 +26,7 @@
     "laravel-mix-nunjucks": "^0.3.0",
     "mix-tailwindcss": "^1.3.0",
     "postcss": "^8.1",
+    "postcss-purgecss-laravel": "^2.0.0",
     "resolve-url-loader": "3.1.0",
     "sass": "^1.32.5",
     "sass-loader": "8.*",

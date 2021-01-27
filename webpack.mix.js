@@ -11,11 +11,13 @@ mix.clean();
 
 // do tasks
 mix.setPublicPath(outputDir);
+
 mix.js("src/js/**/*.js", `${outputDir}/js/main.js`);
-mix.sass("src/css/main.scss", `${outputDir}/css`);
+
 mix
-  .sass("src/css/libs/tailwind.scss", `${outputDir}/css`)
-  .tailwind("./tailwind/tailwind.config.js");
+  .sass("src/css/main.scss", `${outputDir}/css`)
+  .sass("src/css/libs/tailwind.scss", `${outputDir}/css`);
+
 mix.njk("src/views/*.njk", "dist", {
   ext: ".html",
   // data: {},
@@ -24,8 +26,9 @@ mix.njk("src/views/*.njk", "dist", {
   // manageEnv: (nunjucks) => {},
 });
 
-mix.copyDirectory(["src/libs"], `${outputDir}/libs`);
-mix.copyDirectory(["src/images"], `${outputDir}/images`);
+mix
+  .copyDirectory(["src/libs"], `${outputDir}/libs`)
+  .copyDirectory(["src/images"], `${outputDir}/images`);
 
 if (process.env.NODE_ENV != "watch") return;
 mix.browserSync({
